@@ -1,0 +1,22 @@
+version: '3'
+services:
+  axon-gods-mongodb:
+    image: mongo:3.4.10
+    ports:
+      - "27017:27017"
+    volumes:
+      - /axon-gods/mongodb:/data/db
+    networks:
+      - axon-gods
+
+  axon-gods-mongo-express:
+    image: mongo-express:0.42.2
+    ports:
+      - "8079:8081"
+    links:
+      - axon-gods-mongodb:mongo
+    networks:
+      - axon-gods
+
+networks:
+  axon-gods:
