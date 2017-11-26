@@ -20,7 +20,8 @@ public class AxonGodsApplicationRunner implements ApplicationRunner {
 
     @Autowired
     public AxonGodsApplicationRunner(
-        CommandGateway commandGateway, HumanQueryRepository humanQueryRepository
+        CommandGateway commandGateway,
+        HumanQueryRepository humanQueryRepository
     ) {
         this.commandGateway = commandGateway;
         this.humanQueryRepository = humanQueryRepository;
