@@ -1,7 +1,6 @@
 package com.github.hronom.axongods.withouteventsourcing.controllers;
 
 import com.github.hronom.axongods.withouteventsourcing.controllers.pojos.GodPojo;
-import com.github.hronom.axongods.withouteventsourcing.model.God;
 import com.github.hronom.axongods.withouteventsourcing.repositories.GodRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

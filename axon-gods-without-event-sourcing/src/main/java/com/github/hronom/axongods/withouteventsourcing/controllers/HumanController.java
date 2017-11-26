@@ -3,7 +3,6 @@ package com.github.hronom.axongods.withouteventsourcing.controllers;
 import com.github.hronom.axongods.common.commands.HumanBeganToBelieveCommand;
 import com.github.hronom.axongods.common.commands.HumanCreateCommand;
 import com.github.hronom.axongods.common.commands.HumanDeletedCommand;
-import com.github.hronom.axongods.withouteventsourcing.controllers.pojos.GodPojo;
 import com.github.hronom.axongods.withouteventsourcing.controllers.pojos.HumanPojo;
 import com.github.hronom.axongods.withouteventsourcing.model.Human;
 import com.github.hronom.axongods.withouteventsourcing.repositories.HumanRepository;

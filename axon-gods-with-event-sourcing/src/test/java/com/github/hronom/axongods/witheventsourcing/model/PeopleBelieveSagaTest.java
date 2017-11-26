@@ -1,8 +1,8 @@
 package com.github.hronom.axongods.witheventsourcing.model;
 
+import com.github.hronom.axongods.common.events.HumanBeganToBelieveEvent;
 import com.github.hronom.axongods.witheventsourcing.matchers.GodCreateCommandMatcher;
 import com.github.hronom.axongods.witheventsourcing.matchers.GodIncreaseValueCommandMatcher;
-import com.github.hronom.axongods.common.events.HumanBeganToBelieveEvent;
 
 import org.axonframework.test.saga.SagaTestFixture;
 import org.junit.Before;

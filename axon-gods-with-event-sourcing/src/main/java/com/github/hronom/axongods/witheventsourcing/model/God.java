@@ -5,8 +5,8 @@ import com.github.hronom.axongods.common.commands.GodDecreaseValueCommand;
 import com.github.hronom.axongods.common.commands.GodDeleteCommand;
 import com.github.hronom.axongods.common.commands.GodIncreaseValueCommand;
 import com.github.hronom.axongods.common.events.GodCreatedEvent;
-import com.github.hronom.axongods.common.events.GodValueDecreasedEvent;
 import com.github.hronom.axongods.common.events.GodDeletedEvent;
+import com.github.hronom.axongods.common.events.GodValueDecreasedEvent;
 import com.github.hronom.axongods.common.events.GodValueIncreasedEvent;
 
 import org.axonframework.commandhandling.CommandHandler;
