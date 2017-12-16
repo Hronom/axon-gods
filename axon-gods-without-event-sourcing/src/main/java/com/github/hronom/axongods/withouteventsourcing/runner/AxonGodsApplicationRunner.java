@@ -29,20 +29,24 @@ public class AxonGodsApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        if (!humanRepository.existsByName("Jon 1")) {
-            String id = IdentifierFactory.getInstance().generateIdentifier();
-            {
-                HumanCreateCommand command = new HumanCreateCommand(id, "Jon 1");
-                CompletableFuture completableFuture = commandGateway.send(command);
-                completableFuture.get();
-            }
+        /*for (int i = 0; i < 900; i++) {
+            if (!humanRepository.existsByName("Jon " + i)) {
+                String id = IdentifierFactory.getInstance().generateIdentifier();
+                {
+                    HumanCreateCommand command = new HumanCreateCommand(id, "Jon " + i);
+                    CompletableFuture completableFuture = commandGateway.send(command);
+                    completableFuture.get();
+                }
 
-            {
-                HumanBeganToBelieveCommand command =
-                    new HumanBeganToBelieveCommand(id, "Phone God");
-                CompletableFuture completableFuture = commandGateway.send(command);
-                completableFuture.get();
+                {
+                    HumanBeganToBelieveCommand command = new HumanBeganToBelieveCommand(id,
+                        "Phone God"
+                    );
+                    CompletableFuture completableFuture = commandGateway.send(command);
+                    completableFuture.get();
+                }
             }
         }
+        System.out.println("Done.");*/
     }
 }

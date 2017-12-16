@@ -7,6 +7,7 @@ import org.axonframework.eventhandling.ErrorHandler;
 import org.axonframework.eventhandling.EventHandlerInvoker;
 import org.axonframework.eventhandling.EventMessage;
 import org.axonframework.eventhandling.PropagatingErrorHandler;
+import org.axonframework.eventhandling.Segment;
 import org.axonframework.eventhandling.TrackedEventMessage;
 import org.axonframework.eventhandling.TrackingEventProcessor;
 import org.axonframework.eventhandling.tokenstore.TokenStore;
@@ -15,6 +16,7 @@ import org.axonframework.eventsourcing.eventstore.TrackingToken;
 import org.axonframework.messaging.MessageStream;
 import org.axonframework.messaging.StreamableMessageSource;
 import org.axonframework.messaging.interceptors.TransactionManagingInterceptor;
+import org.axonframework.messaging.unitofwork.BatchingUnitOfWork;
 import org.axonframework.messaging.unitofwork.RollbackConfiguration;
 import org.axonframework.messaging.unitofwork.RollbackConfigurationType;
 import org.axonframework.monitoring.MessageMonitor;
@@ -307,7 +309,7 @@ public class OneTimeReplayerEventProcessor extends AbstractEventProcessor {
                 batch.add(eventStream.nextAvailable());
             }
 
-            process(batch);
+            processInUnitOfWork(batch, new BatchingUnitOfWork<>(batch), Segment.ROOT_SEGMENT);
         } catch (InterruptedException e) {
             logger.error(String
                 .format("Event processor [%s] was interrupted. Shutting down.", getName()), e);

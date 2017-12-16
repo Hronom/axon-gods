@@ -41,15 +41,13 @@ public class PeopleBelieveSaga {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodCreateCommand(godAggregateId, event.god)
-                ),
-                LoggingCallback.INSTANCE
+                )
             );
         } else {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodIncreaseValueCommand(godAggregateId)
-                ),
-                LoggingCallback.INSTANCE
+                )
             );
         }
         believersIds.add(event.id);
@@ -63,15 +61,13 @@ public class PeopleBelieveSaga {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodDeleteCommand(godAggregateId)
-                ),
-                LoggingCallback.INSTANCE
+                )
             );
         } else {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodDecreaseValueCommand(godAggregateId)
-                ),
-                LoggingCallback.INSTANCE
+                )
             );
         }
     }

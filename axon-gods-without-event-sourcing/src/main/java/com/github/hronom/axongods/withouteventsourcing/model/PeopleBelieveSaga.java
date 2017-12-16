@@ -10,6 +10,8 @@ import com.github.hronom.axongods.common.events.HumanBelieverDeletedEvent;
 
 import org.axonframework.commandhandling.CommandBus;
 import org.axonframework.commandhandling.callbacks.LoggingCallback;
+import org.axonframework.commandhandling.callbacks.NoOpCallback;
+import org.axonframework.commandhandling.gateway.RetryingCallback;
 import org.axonframework.common.IdentifierFactory;
 import org.axonframework.eventhandling.saga.EndSaga;
 import org.axonframework.eventhandling.saga.SagaEventHandler;
@@ -41,15 +43,14 @@ public class PeopleBelieveSaga {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodCreateCommand(godAggregateId, event.god)
-                ),
-                LoggingCallback.INSTANCE
+                )
             );
         } else {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodIncreaseValueCommand(godAggregateId)
                 ),
-                LoggingCallback.INSTANCE
+                NoOpCallback.INSTANCE
             );
         }
         believersIds.add(event.id);
@@ -64,14 +65,14 @@ public class PeopleBelieveSaga {
                 asCommandMessage(
                     new GodDeleteCommand(godAggregateId)
                 ),
-                LoggingCallback.INSTANCE
+                NoOpCallback.INSTANCE
             );
         } else {
             commandBus.dispatch(
                 asCommandMessage(
                     new GodDecreaseValueCommand(godAggregateId)
                 ),
-                LoggingCallback.INSTANCE
+                NoOpCallback.INSTANCE
             );
         }
     }

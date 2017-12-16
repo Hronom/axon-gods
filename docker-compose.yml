@@ -10,7 +10,7 @@ services:
       - axon-gods
 
   axon-gods-mongo-express:
-    image: mongo-express:0.42.2
+    image: mongo-express:latest
     ports:
       - "8079:8081"
     links:
